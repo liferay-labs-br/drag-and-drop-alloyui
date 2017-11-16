@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.task-container {
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tasks {
+    background: #8BBEE7;
+}
+
+.item {
+    display: table;
+    margin: 3px 3px;
+    padding: 5px 5px;
+    border-radius: 3px; 
+    background: #E7F2F7;
+    cursor: move;
+}
+
+.item:hover:after {
+    background-color: #BDC5C9;
+}
+*:-khtml-drag {
+    background-color: rgba(238,238,238, 0.5);
+}
+
+.row {
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.items {
+    border: 1px dashed #aaaaaa;
+}
+
+.items {
+    border: 1px dashed #aaaaaa;
+    height: 200px;
+    width: 100%;
+}
+
+.row div{
+    flex-wrap: wrap;
+    display: inline-block;
+}
+
+.dashed {
+    width: 50px;
+    border: 3px dashed #aaaaaa;
+    display: inline-block;
+    opacity: .5;
+}
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+  <link href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+  <link rel="stylesheet" href="css/style3.css">
+  <title>Drag and drop with AlloyUI</title>
+
+  <script>
+    YUI().use(
+      'aui-sortable-list', function (Y) {
+        let el; 
+        let noTrash = true;
+
+        Y.all('.item').on('mousedown', function (event) {  
+            el = event.currentTarget._node.id;
+            
+            Y.one('#trash').attr('class', 'col-md-12 visible');
+              
+            Y.one('#trash').on('mouseover', function (event) {
+
+                if(el) {
+                  Y.one('#'+el+'').remove();
+                  el = null;
+                } 
+                Y.one('#trash').attr('class', 'col-md-12 hidden');
+          });
+
+        });
+
+        let placeholder = Y.Node.create('<div class="dashed item"></div>');
+        new Y.SortableList({
+          dropOn: 'items',
+          nodes: '.items .item',
+          placeholder: placeholder
+          }
+      );
+    } 
+  );
+  </script>
+
+</head>
+<body>
+    <div id="container1" class="tasks task-container col-md-12">
+    <div id="tasks" class="content">
+      <div id="priorities" class="row ">
+        <h2>Personal Information</h2>
+        <div class="items col-md-12">
+          <div class="item" id="1" >
+              <label>Name: </label>
+              <input type="text">
+            </div>
+          <div class="item " id="2" >ALine</div>
+        </div>
+      </div>
+      <div id="learn" class="row ">
+          <h2>Things to do</h2>
+          <div class="items">
+            <div class="item" id="3" >Lianne</div>
+            <div class="item" id="4" >Xuxu</div>
+            <div class="item" id="5" >Pipi</div>
+            <div class="item" id="7" >Study We Deploy</div>
+            <div class="item" id="8" >Fix sidebar</div>
+            <div class="item" id="9" >Study Metal</div>
+            <div class="item" id="10" >Study AlloyUI</div>
+            <div class="item" id="11" >Fix bugs</div>
+            <div class="item" id="12" >Study We Deploy</div>
+            <div class="item" id="13" >Fix sidebar</div>
+            <div class="item" id="14" >Study Metal</div>
+            <div class="item" id="15" >Study AlloyUI</div>
+            <div class="item" id="16" >Fix bugs</div>
+            <div class="item" id="17" >Study We Deploy</div>
+            <div class="item" id="18" >Fix sidebar</div>
+            <div class="item" id="19" >Study Metal</div>
+            <div class="item" id="20" >Study AlloyUI</div>
+            <div class="item" id="21" >Fix bugs</div>
+            <div class="item" id="22" >Study We Deploy</div>
+            <div class="item" id="23" >Fix sidebar</div>
+          </div>
+      </div>
+      <div id="done" class="row ">
+          <h2>Tasks done</h2>
+          <div class="items">
+            <div class="item" id="24" >Study We Deploy</div>
+            <div class="item" id="25" >Fix sidebar</div>
+          </div>
+      </div>
+      <div id="trash" class="col-md-12 hidden">
+        <div class="items">
+          <div id="trash-area" class="trash-bar">Trash</div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</body>
+</html>
